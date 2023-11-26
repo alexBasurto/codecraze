@@ -55,7 +55,7 @@ function App() {
           <th>DESCRIPTION</th>
           <th>MAIN LANGUAGE</th>
           <th>STARS</th>
-          <th colSpan={2}>AUTHOR/OWNER</th>
+          <th>AUTHOR/OWNER</th>
           <th>TYPE</th>
           </tr>
         </thead>

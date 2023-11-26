@@ -12,12 +12,12 @@ const Repo = ({ data }) => {
   return (
     <tbody>
     <tr className={className + (loaded ? "" : " hidden")} onClick={handleClick}>
-        <td> <a href={data.html_url} target="_blank">{data.name.toUpperCase()}</a></td>
+        <td>{data.name.toUpperCase()}</td>
         <td>{data.description}</td>
         <td>{data.language}</td>
         <td>{data.stargazers_count}</td>
         <td>
-        <a href={data.owner.html_url} target="_blank"><img src={data.owner.avatar_url} alt="Owner profile" className="ownerMiniature" />{data.owner.login}</a>
+        <img src={data.owner.avatar_url} alt="Owner profile" className="ownerMiniature" />{data.owner.login}
         </td>
         <td>{data.owner.type}</td>
 
