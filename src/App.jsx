@@ -5,7 +5,7 @@ import './App.css'
 function App() {
   const [repoList, setRepoList] = useState([]);
   const [error, setError] = useState("");
-  const [currentUrl, setCurrentUrl] = useState('https://api.github.com/search/repositories?q=stars:%3E0&sort=stars&order=desc&per_page=100&page=1');
+  const [currentUrl, setCurrentUrl] = useState('https://api.github.com/search/repositories?q=stars:%3E0&sort=stars&order=desc');
   const [nextUrl, setNextUrl] = useState(null);
   const [previousUrl, setPreviousUrl] = useState(null);
 
@@ -41,12 +41,12 @@ function App() {
       <p className="error">{error}</p>
       <table className='repos-table'>
         <thead>
-          <td>REPO NAME</td>
-          <td>DESCRIPTION</td>
-          <td>MAIN LANGUAGE</td>
-          <td>STARS</td>
-          <td colSpan={2}>AUTHOR/OWNER</td>
-          <td>TYPE</td>
+          <th>REPO NAME</th>
+          <th>DESCRIPTION</th>
+          <th>MAIN LANGUAGE</th>
+          <th>STARS</th>
+          <th colSpan={2}>AUTHOR/OWNER</th>
+          <th>TYPE</th>
         </thead>
         {repoList.map((repo) => (
           <Repo key={repo.id} data={repo} />
