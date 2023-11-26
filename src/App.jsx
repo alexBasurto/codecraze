@@ -64,9 +64,9 @@ function App() {
         ))}
       </table>
       <div className="pagination">
-        <button onClick={() => goToPrevious()} disabled={currentPage === 1}>Anterior</button>
-        <span>Página {currentPage} de {totalPages}</span>
-        <button onClick={() => goToNext()} disabled={currentPage === totalPages}>Siguiente</button>
+        <button onClick={() => goToPrevious()} disabled={currentPage === 1}>Previous</button>
+        <span>Page {currentPage} of {totalPages}</span>
+        <button onClick={() => goToNext()} disabled={currentPage === totalPages}>Next</button>
       </div>
     </>
   );
