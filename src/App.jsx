@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Repo from './components/RepoComponent'
+import Repo from './components/RepoRowComponent'
 import './App.css'
 
 function App() {
