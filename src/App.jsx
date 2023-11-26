@@ -5,22 +5,22 @@ import './App.css'
 function App() {
   const [repoList, setRepoList] = useState([]);
   const [error, setError] = useState("");
-  const [currentUrl, setCurrentUrl] = useState('https://api.github.com/search/repositories?q=stars:%3E2000&sort=stars&order=desc');
-  const [nextUrl, setNextUrl] = useState(null);
-  const [previousUrl, setPreviousUrl] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [perPage, setPerPage] = useState(30);
+  const [totalPages, setTotalPages] = useState(null);
 
   useEffect(() => {
     setRepoList([]);
     getRepos();
-  }, [currentUrl]);
+  }, [currentPage]);
 
   const getRepos = async () => {
     try {
-      const data = await fetch(currentUrl);
+      const data = await fetch(`https://api.github.com/search/repositories?q=stars:%3E2000&sort=stars&order=desc&page=${currentPage}&per_page=${perPage}`);
       const results = await data.json();
       console.log(results);
-      setNextUrl(results.next);
-      setPreviousUrl(results.previous);
+      setTotalPages(Math.ceil(results.total_count / perPage)); // Calcular el número total de páginas
+
       setRepoList(results.items);
     } catch (e) {
       setError("Algo salió mal...");
@@ -28,17 +28,26 @@ function App() {
     }
   }  
 
-  const goToNext = () => {
-    setCurrentUrl(nextUrl);
-  }
-  const goToPrevious = () => {
-    setCurrentUrl(previousUrl);
-  }
+  const goToPage = (page) => {
+    setCurrentPage(page);
+  };
 
+  const goToNext = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const goToPrevious = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
   return (
     <>
       <h1>CODECRAZE</h1>
       <p className="error">{error}</p>
+
       <table className='repos-table'>
         <thead>
           <tr>
@@ -54,6 +63,11 @@ function App() {
           <Repo key={repo.id} data={repo} />
         ))}
       </table>
+      <div className="pagination">
+        <button onClick={() => goToPrevious()} disabled={currentPage === 1}>Anterior</button>
+        <span>Página {currentPage} de {totalPages}</span>
+        <button onClick={() => goToNext()} disabled={currentPage === totalPages}>Siguiente</button>
+      </div>
     </>
   );
 }
