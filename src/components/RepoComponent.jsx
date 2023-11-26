@@ -10,9 +10,20 @@ const Repo = ({ data }) => {
   };
 
   return (
-    <article className={className + (loaded ? "" : " hidden")} onClick={handleClick}>
-      <h2>{data.name}</h2>
-    </article>
+    <tbody>
+    <tr className={className + (loaded ? "" : " hidden")} onClick={handleClick}>
+        <td> <a href={data.html_url} target="_blank">{data.name.toUpperCase()}</a></td>
+        <td>{data.description}</td>
+        <td>{data.language}</td>
+        <td>{data.stargazers_count}</td>
+        <td>
+        <a href={data.owner.html_url} target="_blank"><img src={data.owner.avatar_url} alt="Owner profile" className="ownerMiniature" />{data.owner.login}</a>
+        </td>
+        <td>{data.owner.type}</td>
+
+      
+    </tr>
+    </tbody>
   );
 }
 
