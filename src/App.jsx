@@ -1,35 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
+import Repo from './components/RepoComponent'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [repoList, setRepoList] = useState([]);
+  const [error, setError] = useState("");
+  const [currentUrl, setCurrentUrl] = useState('https://api.github.com/search/repositories?q=stars:%3E0&sort=stars&order=desc&per_page=100');
+  const [nextUrl, setNextUrl] = useState(null);
+  const [previousUrl, setPreviousUrl] = useState(null);
+
+  useEffect(() => {
+    setRepoList([]);
+    getRepos();
+  }, [currentUrl]);
+
+  const getRepos = async () => {
+    try {
+      const data = await fetch(currentUrl);
+      const results = await data.json();
+      console.log(results);
+      setNextUrl(results.next);
+      setPreviousUrl(results.previous);
+      setRepoList(results.items);
+    } catch (e) {
+      setError("Algo salió mal...");
+      console.error(e);
+    }
+  }
+
+  const goToNext = () => {
+    setCurrentUrl(nextUrl);
+  }
+  const goToPrevious = () => {
+    setCurrentUrl(previousUrl);
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>CODECRAZE</h1>
+      <p className="error">{error}</p>
+      <section className='repos-container'>
+        {repoList.map((repo) => (
+          <Repo key={repo.id} data={repo} />
+        ))}
+      </section>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
