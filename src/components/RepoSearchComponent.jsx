@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import RepoForm from "./RepoFormComponent";
 import RepoRow from "./RepoRowComponent";
 
-const ResultsComponent = () => {
+const RepoSearch = () => {
   const [loaded, setLoaded] = useState(false);
   const [repoList, setRepoList] = useState([]);
   const [error, setError] = useState("");
@@ -55,6 +55,7 @@ const ResultsComponent = () => {
 
   return (
     <>
+        <h2>Repo Search Engine</h2>
       <p className="error">{error}</p>
       <RepoForm />
       <table className='repos-table'>
@@ -81,4 +82,4 @@ const ResultsComponent = () => {
   );
 }
 
-export default ResultsComponent;
+export default RepoSearch;
