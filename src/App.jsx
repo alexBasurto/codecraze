@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import Welcome from './components/WelcomeComponent';
 import RepoSearch from './components/RepoSearchComponent';

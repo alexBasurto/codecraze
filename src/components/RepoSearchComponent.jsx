@@ -14,23 +14,41 @@ const RepoSearch = () => {
   let className = "repo-results";
   
   useEffect(() => {
-    setRepoList([]);
-    getRepos();
   }, [currentPage]);
 
-  const getRepos = async () => {
+  const getRepos = async (query) => {
     try {
-      const data = await fetch(`https://api.github.com/search/repositories?q=stars:%3E2000&sort=stars&order=desc&page=${currentPage}&per_page=${perPage}`);
+      const data = await fetch(`https://api.github.com/search/repositories${query}`);
       const results = await data.json();
       console.log(results);
       setTotalPages(Math.ceil(results.total_count / perPage)); // Calcular el número total de páginas
-
       setRepoList(results.items);
     } catch (e) {
       setError("Algo salió mal...");
       console.error(e);
     }
   }  
+
+  const buildQuery = (formData) => {
+    let query = `?q=stars:%3E2000&sort=stars&order=desc&page=${currentPage}&per_page=${perPage}`;
+    console.log("Before conditions:", query);
+    if (formData.repoName) query +=  `+name:${formData.repoName}`;
+    if (formData.repoDesc) query +=  `+description:${formData.repoDesc}`;
+    if (formData.owner) query +=  `+owner.login:${formData.owner}`;
+    if (formData.language) query +=  `+language:${formData.language}`;
+    if (formData.type) query +=  `+owner.type:${formData.type}`;
+    if (formData.license) query +=  `+license.name:${formData.license}`;
+    //falla aquí, imprime un object object en consola:
+    console.log('%c' + name, 'background: red; color: white')
+    console.log('%c' + query, 'background: red; color: white')
+    return query;
+  };
+
+  const handleFormSubmit = (formData) => {
+    const query = buildQuery(formData);
+    setRepoList([]);
+    getRepos(query);
+  };
 
   const goToPage = (page) => {
     setCurrentPage(page);
@@ -48,16 +66,11 @@ const RepoSearch = () => {
     }
   };
 
-  const handleClick = () => {
-    // Puedes agregar lógica adicional aquí si es necesario
-    console.log("Click en el repo:", data.name);
-  };
-
   return (
     <>
         <h2>Repo Search Engine</h2>
       <p className="error">{error}</p>
-      <RepoForm />
+      <RepoForm onFormSubmit={handleFormSubmit}/>
       <table className='repos-table'>
         <thead>
           <tr>
