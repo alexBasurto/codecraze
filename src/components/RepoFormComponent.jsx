@@ -45,8 +45,8 @@ const RepoForm = ({ onFormSubmit }) => {
                 <select name="type" id="type" defaultValue="all"
         onChange={(e) => setType(e.target.value)}>
                     <option value="all">All</option>
-                    <option value="user">User</option>
-                    <option value="org">Organization</option>
+                    <option value="User">User</option>
+                    <option value="Organization">Organization</option>
                 </select>
 
                 <LicensesOptions/>

@@ -21,7 +21,6 @@ const RepoSearch = () => {
     try {
       const data = await fetch(query);
       const results = await data.json();
-      console.log(results);
       setTotalPages(Math.ceil(results.total_count / perPage)); // Calcular el número total de páginas
       setRepoList(results.items);
     } catch (e) {
@@ -33,12 +32,11 @@ const RepoSearch = () => {
   const buildQuery = (formData, page) => {
     let query = 'https://api.github.com/search/repositories';
     query += `?q=stars:%3E2000`;
-    console.log("Before conditions:", query);
-    if (formData.repoName) query +=  `+name:${formData.repoName}`;
-    if (formData.repoDesc) query +=  `+description:${formData.repoDesc}`;
-    if (formData.owner) query +=  `+owner.login:${formData.owner}`;
-    if (formData.language) query +=  `+language:${formData.language}`;
-    if (formData.type) query +=  `+owner.type:${formData.type}`;
+    if (formData.repoName) query +=  `+in:name%20${formData.repoName}`; //ok
+    if (formData.repoDesc) query +=  `+in:description%20${formData.repoDesc}`; //ok
+    if (formData.owner) query +=  `+user:${formData.owner}`;
+    if (formData.language) query +=  `+language:${formData.language}`; //ok
+    if (formData.type) query +=  `&type=${formData.type}`;
     if (formData.license) query +=  `+license.name:${formData.license}`;
     query += `&sort=stars&order=desc&page=${page}&per_page=${perPage}`;
     console.log("After conditions:", query);
