@@ -8,8 +8,11 @@ import About from './components/AboutComponent';
 import './App.css';
 
 function App() {
-const [webPosition, setWebPosition] = useState(0)
+const [webPosition, setWebPosition] = useState('welcome');
 
+const handleButtonClick = (position) => {
+  setWebPosition(position);
+}
 
   return (
     <>
@@ -17,18 +20,18 @@ const [webPosition, setWebPosition] = useState(0)
       <h1>CODECRAZE</h1>
       <nav>
         <ul>
-          <li><button>WELCOME</button></li>
-          <li><button>REPO SEARCH ENGINE</button></li>
-          <li><button>LANGUAGES STATISTICS</button></li>
-          <li><button>ABOUT</button></li>
+          <li><button onClick={() => handleButtonClick('welcome')}>WELCOME</button></li>
+          <li><button onClick={() => handleButtonClick('repoSearch')}>REPO SEARCH ENGINE</button></li>
+          <li><button onClick={() => handleButtonClick('language')}>LANGUAGES STATISTICS</button></li>
+          <li><button onClick={() => handleButtonClick('about')}>ABOUT</button></li>
         </ul>
       </nav>
     </header>
     <main>
-      <Welcome/>
-      <RepoSearch/>
-      <LanguageStats/>
-      <About/>
+      {webPosition === 'welcome' && <Welcome />}
+      {webPosition === 'repoSearch' && <RepoSearch />}
+      {webPosition === 'language' && <LanguageStats />}
+      {webPosition === 'about' && <About />}
     </main>
     </>
   );
