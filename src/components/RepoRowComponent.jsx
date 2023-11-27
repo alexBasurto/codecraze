@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Repo = ({ data }) => {
+const RepoRow = ({ data }) => {
   const [loaded, setLoaded] = useState(false);
   let className = "repo-card";
   
@@ -27,4 +27,4 @@ const Repo = ({ data }) => {
   );
 }
 
-export default Repo;
+export default RepoRow;

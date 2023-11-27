@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import Repo from './components/RepoRowComponent'
+import RepoRow from './components/RepoRowComponent'
+import RepoForm from './components/RepoFormComponent'
 import './App.css'
 
 function App() {
@@ -47,7 +48,7 @@ function App() {
     <>
       <h1>CODECRAZE</h1>
       <p className="error">{error}</p>
-
+      <RepoForm />
       <table className='repos-table'>
         <thead>
           <tr>
@@ -60,7 +61,7 @@ function App() {
           </tr>
         </thead>
         {repoList.map((repo) => (
-          <Repo key={repo.id} data={repo} />
+          <RepoRow key={repo.id} data={repo} />
         ))}
       </table>
       <div className="pagination">
