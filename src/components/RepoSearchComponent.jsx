@@ -10,6 +10,7 @@ const RepoSearch = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage, setPerPage] = useState(30);
   const [totalPages, setTotalPages] = useState(null);
+  const [currentSearch, setCurrentSearch] = useState([]);
 
   let className = "repo-results";
   
@@ -29,7 +30,7 @@ const RepoSearch = () => {
     }
   }  
 
-  const buildQuery = (formData) => {
+  const buildQuery = (formData, page) => {
     let query = 'https://api.github.com/search/repositories';
     query += `?q=stars:%3E2000`;
     console.log("Before conditions:", query);
@@ -39,12 +40,14 @@ const RepoSearch = () => {
     if (formData.language) query +=  `+language:${formData.language}`;
     if (formData.type) query +=  `+owner.type:${formData.type}`;
     if (formData.license) query +=  `+license.name:${formData.license}`;
-    query += `&sort=stars&order=desc&page=${currentPage}&per_page=${perPage}`;
+    query += `&sort=stars&order=desc&page=${page}&per_page=${perPage}`;
+    console.log("After conditions:", query);
     return query;
   };
 
   const handleFormSubmit = (formData) => {
-    const query = buildQuery(formData);
+    setCurrentSearch(formData);
+    const query = buildQuery(formData, currentPage);
     setRepoList([]);
     getRepos(query);
   };
@@ -55,13 +58,19 @@ const RepoSearch = () => {
 
   const goToNext = () => {
     if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
+      const query = buildQuery(currentSearch, currentPage + 1);
+      setCurrentPage(currentPage => currentPage + 1);
+      setRepoList([]);
+      getRepos(query);
     }
   };
 
   const goToPrevious = () => {
     if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
+      const query = buildQuery(currentSearch, currentPage - 1);
+      setCurrentPage(currentPage => currentPage - 1);
+      setRepoList([]);
+      getRepos(query);
     }
   };
 
