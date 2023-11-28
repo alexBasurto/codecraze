@@ -4,21 +4,23 @@ import Plot from 'react-plotly.js';
 
 const Chart1 = () => {
     const [repoList, setRepoList] = useState([]);
+    const [loaded, setLoaded] = useState(false);
     const [error, setError] = useState("");
 
     let className = "chart1";
 
     useEffect(() => {
-        getThousandRepos();
+        getRepos();
       } , []);
 
-      const getThousandRepos = async () => {
+      const getRepos = async () => {
         try {
           const data = await fetch('https://api.github.com/search/repositories?q=stars:%3E2000&sort=stars&order=desc&page=1&per_page=100');
           const results = await data.json();
           
           setRepoList(results.items);
             console.log("RepoList:", repoList);
+            setLoaded(true);
         } catch (e) {
           setError("Algo salió mal...");
           console.error(e);
@@ -49,9 +51,10 @@ const Chart1 = () => {
             },
             yaxis: {
                 title: 'Number of Repositories'
-            }
+            },
+            
         };
-      class MostUsed1000 extends React.Component {
+      class MostUsedLang extends React.Component {
         
 
         render() {
@@ -68,7 +71,7 @@ const Chart1 = () => {
         <>
         <h3>Chart 1</h3>
         <p>Here you can see the most used languages in the repos you have searched</p>
-        <MostUsed1000/>
+        {loaded && <MostUsedLang/>}
         </>
     );
 }
