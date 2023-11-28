@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const RepoFile = ({ data }) => {
     const [loaded, setLoaded] = useState(false);
+    const [favorite, setFavorite] = useState(false);
     let className = "repo-file";
     
     const handleClick = () => {
@@ -33,7 +34,8 @@ const RepoFile = ({ data }) => {
             <p>{data.owner.type}</p>
             <p><a href="{data.owner.html_url}">GitHub owner's page</a></p>
 
-            <button onClick={handleClick}>Add to favorites</button>
+            {favorite && <img src="/assets/nofav.png" alt="Remove favorite" className="favorite" onClick={handleClick}/>}
+            {!favorite &&  <img src="/assets/nofav.png" alt="Add to favorites" className="favorite" onClick={handleClick}/>}
         </article>
         </>
     );
