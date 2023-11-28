@@ -82,8 +82,11 @@ const RepoSearch = () => {
 
   return (
     <>
-        <h2>Repo Search Engine</h2>
+        
       <p className="error">{error}</p>
+
+      {searchOrFile && !repoSelected &&
+      <>
       <RepoForm onFormSubmit={handleFormSubmit}/>
       {repoList.length != 0 &&
       <>
@@ -109,6 +112,8 @@ const RepoSearch = () => {
       </div>
       </>
       }
+      </>
+}
       {repoSelected && !searchOrFile && <RepoFile data={repoSelected}/>}
     </>
   );

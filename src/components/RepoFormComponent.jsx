@@ -24,7 +24,8 @@ const RepoForm = ({ onFormSubmit }) => {
     };
 
     return (
-
+        <>
+        <h2>Repo Search Engine</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="repoName">Repo Name</label>
                 <input type="text" id="repoName" placeholder="Repo name..." value={repoName} onChange={(e) => setRepoName(e.target.value)}/>
@@ -39,6 +40,7 @@ const RepoForm = ({ onFormSubmit }) => {
 
                 <button type="submit">Search</button>
             </form>
+            </>
     );
 }
 

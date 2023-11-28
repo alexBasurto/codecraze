@@ -12,6 +12,7 @@ const RepoFile = ({ data }) => {
 
     return (
         <>
+        <h2>Repo File</h2>
         <article className="className">
             <h3>{data.name}</h3>
             <h4>Repository Info</h4>
