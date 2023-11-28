@@ -22,7 +22,7 @@ const RepoFile = ({ data }) => {
             <p>{data.updated_at}</p>
             <p>{data.stargazers_count}</p>
             <p>{data.forks_count}</p>
-            <p>{data.license.name}</p>
+            {data.license && <p>{data.license.name}</p>}
             <p>{data.language}</p>
 
             <h4>Owner Info</h4>
