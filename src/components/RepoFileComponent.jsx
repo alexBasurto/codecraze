@@ -33,7 +33,7 @@ const RepoFile = ({ data }) => {
         <article className="className">
             <h3>{data.name}</h3>
             <h4>Repository Info</h4>
-            <p><a href={data.html_url}>GitHub repo page</a></p>
+            <p><a href={data.html_url} target="_blank">GitHub repo page</a></p>
             <p>{data.description}</p>
             <p>Created at:</p>
             <p>{data.created_at.slice(0, 10)}</p>
@@ -48,7 +48,7 @@ const RepoFile = ({ data }) => {
             <img src={data.owner.avatar_url} alt="Imagen de perfil" className="avatar"/>
             <p>{data.owner.login}</p>
             <p>{data.owner.type}</p>
-            <p><a href="{data.owner.html_url}">GitHub owner's page</a></p>
+            <p><a href={data.owner.html_url} target="_blank">GitHub owner's page</a></p>
 
             {favorite && <img src="/assets/fav.png" alt="Remove favorite" className="favorite" onClick={handleToggleFavorite}/>}
             {!favorite &&  <img src="/assets/nofav.png" alt="Add to favorites" className="favorite" onClick={handleToggleFavorite}/>}
