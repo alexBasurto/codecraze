@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import Welcome from './components/WelcomeComponent';
 import RepoSearch from './components/RepoSearchComponent';
+import MyFavs from './components/MyFavsComponent';
 import LanguageStats from './components/LanguageStatsComponent';
 import About from './components/AboutComponent';
 
@@ -27,6 +28,7 @@ const handleButtonClick = (position) => {
         <ul>
           <li><button onClick={() => handleButtonClick('welcome')}>WELCOME</button></li>
           <li><button onClick={() => handleButtonClick('repoSearch')}>REPO SEARCH ENGINE</button></li>
+          <li><button onClick={() => handleButtonClick('myFavs')}>MY FAVS</button></li>
           <li><button onClick={() => handleButtonClick('language')}>LANGUAGES STATISTICS</button></li>
           <li><button onClick={() => handleButtonClick('about')}>ABOUT</button></li>
         </ul>
@@ -35,6 +37,7 @@ const handleButtonClick = (position) => {
     <main>
       {webPosition === 'welcome' && <Welcome />}
       {webPosition === 'repoSearch' && <RepoSearch />}
+      {webPosition === 'myFavs' && <MyFavs />}
       {webPosition === 'language' && <LanguageStats />}
       {webPosition === 'about' && <About />}
     </main>
