@@ -4,12 +4,21 @@ const RepoFile = ({ data }) => {
     const [loaded, setLoaded] = useState(false);
     const [favorite, setFavorite] = useState(false);
     let className = "repo-file";
-    
-    const handleClick = () => {
-        // Lógica de añadir a favoritos en localStorage
-        
-        
-    }
+
+
+    const handleToggleFavorite = () => {
+        setFavorite(!favorite);
+
+        if (!favorite) {
+          const favorites = JSON.parse(localStorage.getItem("codeCrazeFavs")) || [];
+          favorites.push(data);
+          localStorage.setItem("codeCrazeFavs", JSON.stringify(favorites));
+        } else {
+          const favorites = JSON.parse(localStorage.getItem("codeCrazeFavs")) || [];
+          const updatedFavorites = favorites.filter((favorite) => favorite.id !== data.id);
+          localStorage.setItem("codeCrazeFavs", JSON.stringify(updatedFavorites));
+        }
+      };
 
     return (
         <>
@@ -34,8 +43,8 @@ const RepoFile = ({ data }) => {
             <p>{data.owner.type}</p>
             <p><a href="{data.owner.html_url}">GitHub owner's page</a></p>
 
-            {favorite && <img src="/assets/nofav.png" alt="Remove favorite" className="favorite" onClick={handleClick}/>}
-            {!favorite &&  <img src="/assets/nofav.png" alt="Add to favorites" className="favorite" onClick={handleClick}/>}
+            {favorite && <img src="/assets/nofav.png" alt="Remove favorite" className="favorite" onClick={handleToggleFavorite}/>}
+            {!favorite &&  <img src="/assets/nofav.png" alt="Add to favorites" className="favorite" onClick={handleToggleFavorite}/>}
         </article>
         </>
     );
