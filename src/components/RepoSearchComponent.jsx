@@ -76,6 +76,8 @@ const RepoSearch = () => {
         <h2>Repo Search Engine</h2>
       <p className="error">{error}</p>
       <RepoForm onFormSubmit={handleFormSubmit}/>
+      {repoList.length != 0 &&
+      <>
       <table className='repos-table'>
         <thead>
           <tr>
@@ -96,6 +98,8 @@ const RepoSearch = () => {
         <span>Page {currentPage} of {totalPages}</span>
         <button onClick={() => goToNext()} disabled={currentPage === totalPages}>Next</button>
       </div>
+      </>
+      }    
     </>
   );
 }
