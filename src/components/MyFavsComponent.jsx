@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import RepoRow from "./RepoRowComponent";
 
 const MyFavs = () => {
 
@@ -21,13 +22,21 @@ const MyFavs = () => {
   return (
     <>
       <h2>My Favs</h2>
-      <ul>
+      <table className='repos-table'>
+        <thead>
+          <tr>
+          <th>REPO NAME</th>
+          <th>DESCRIPTION</th>
+          <th>MAIN LANGUAGE</th>
+          <th>STARS</th>
+          <th>AUTHOR/OWNER</th>
+          <th>TYPE</th>
+          </tr>
+        </thead>
         {myFavs.map((repo) => (
-          <li key={repo.id}>
-            <a href={repo.html_url} target="_blank" rel="noreferrer">{repo.full_name}</a>
-          </li>
+          <RepoRow key={repo.id} data={repo}/>
         ))}
-      </ul>
+      </table>
     </>
   );
 }
