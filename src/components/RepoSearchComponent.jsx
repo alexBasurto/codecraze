@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import RepoForm from "./RepoFormComponent";
 import RepoRow from "./RepoRowComponent";
+import RepoFile from "./RepoFileComponent";
 
 const RepoSearch = () => {
   const [loaded, setLoaded] = useState(false);
@@ -49,6 +50,10 @@ const RepoSearch = () => {
     getRepos(query);
   };
 
+  const handleOpenRepoFile = (repo) => {
+    console.log("Repo to open:", repo);
+  }
+
   const goToPage = (page) => {
     setCurrentPage(page);
   };
@@ -90,7 +95,7 @@ const RepoSearch = () => {
           </tr>
         </thead>
         {repoList.map((repo) => (
-          <RepoRow key={repo.id} data={repo} />
+          <RepoRow key={repo.id} data={repo} openRepoFile={handleOpenRepoFile}/>
         ))}
       </table>
       <div className="pagination">
@@ -100,6 +105,7 @@ const RepoSearch = () => {
       </div>
       </>
       }    
+      {/* <RepoFile/> */}
     </>
   );
 }

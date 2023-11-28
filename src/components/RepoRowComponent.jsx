@@ -1,12 +1,11 @@
 import { useState } from "react";
 
-const RepoRow = ({ data }) => {
+const RepoRow = ({ data , openRepoFile}) => {
   const [loaded, setLoaded] = useState(false);
   let className = "repo-card";
   
   const handleClick = () => {
-    // Puedes agregar lógica adicional aquí si es necesario
-    console.log("Click en el repo:", data.name);
+    openRepoFile(data);
   };
 
   return (

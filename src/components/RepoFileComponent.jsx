@@ -34,3 +34,6 @@ const RepoFile = ({ data }) => {
         </article>
         </>
     );
+}
+
+export default RepoFile;
