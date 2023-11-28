@@ -90,6 +90,11 @@ const RepoSearch = () => {
       <RepoForm onFormSubmit={handleFormSubmit}/>
       {repoList.length != 0 &&
       <>
+      <div className="pagination">
+        <button onClick={() => goToPrevious()} disabled={currentPage === 1}>Previous</button>
+        <span>Page {currentPage} of {totalPages}</span>
+        <button onClick={() => goToNext()} disabled={currentPage === totalPages}>Next</button>
+      </div>
       <table className='repos-table'>
         <thead>
           <tr>
@@ -105,11 +110,6 @@ const RepoSearch = () => {
           <RepoRow key={repo.id} data={repo} openRepoFile={handleOpenRepoFile}/>
         ))}
       </table>
-      <div className="pagination">
-        <button onClick={() => goToPrevious()} disabled={currentPage === 1}>Previous</button>
-        <span>Page {currentPage} of {totalPages}</span>
-        <button onClick={() => goToNext()} disabled={currentPage === totalPages}>Next</button>
-      </div>
       </>
       }
       </>
