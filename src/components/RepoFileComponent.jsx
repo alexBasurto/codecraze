@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const RepoFile = ({ data }) => {
     const [loaded, setLoaded] = useState(false);
     const [favorite, setFavorite] = useState(false);
     let className = "repo-file";
 
+    useEffect(() => {
+        const isRepoInFavorites = JSON.parse(localStorage.getItem("codeCrazeFavs")) || [];
+        const isFavorite = isRepoInFavorites.some((favorite) => favorite.id === data.id);
+        setFavorite(isFavorite);
+        setLoaded(true);
+      }
+    , [data.id]);
 
     const handleToggleFavorite = () => {
         setFavorite(!favorite);
@@ -43,7 +50,7 @@ const RepoFile = ({ data }) => {
             <p>{data.owner.type}</p>
             <p><a href="{data.owner.html_url}">GitHub owner's page</a></p>
 
-            {favorite && <img src="/assets/nofav.png" alt="Remove favorite" className="favorite" onClick={handleToggleFavorite}/>}
+            {favorite && <img src="/assets/fav.png" alt="Remove favorite" className="favorite" onClick={handleToggleFavorite}/>}
             {!favorite &&  <img src="/assets/nofav.png" alt="Add to favorites" className="favorite" onClick={handleToggleFavorite}/>}
         </article>
         </>
