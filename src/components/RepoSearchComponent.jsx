@@ -7,11 +7,13 @@ import RepoFile from "./RepoFileComponent";
 const RepoSearch = () => {
   const [loaded, setLoaded] = useState(false);
   const [repoList, setRepoList] = useState([]);
+  const [repoSelected, setRepoSelected] = useState(null);
   const [error, setError] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage, setPerPage] = useState(30);
   const [totalPages, setTotalPages] = useState(null);
   const [currentSearch, setCurrentSearch] = useState([]);
+  const [searchOrFile, setSearchOrFile] = useState(true); // true = search, false = file
 
   let className = "repo-results";
   
@@ -52,6 +54,8 @@ const RepoSearch = () => {
 
   const handleOpenRepoFile = (repo) => {
     console.log("Repo to open:", repo);
+    setRepoSelected(repo);
+    setSearchOrFile(false);
   }
 
   const goToPage = (page) => {
@@ -104,8 +108,8 @@ const RepoSearch = () => {
         <button onClick={() => goToNext()} disabled={currentPage === totalPages}>Next</button>
       </div>
       </>
-      }    
-      {/* <RepoFile/> */}
+      }
+      {repoSelected && !searchOrFile && <RepoFile data={repoSelected}/>}
     </>
   );
 }
