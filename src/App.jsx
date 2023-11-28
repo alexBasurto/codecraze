@@ -11,7 +11,12 @@ function App() {
 const [webPosition, setWebPosition] = useState('welcome');
 
 const handleButtonClick = (position) => {
-  setWebPosition(position);
+  if (position === 'repoSearch' && webPosition === 'repoSearch') {
+    setWebPosition(null);
+    setTimeout(() => setWebPosition(position), 0);
+  } else {
+    setWebPosition(position);
+  }
 }
 
   return (
