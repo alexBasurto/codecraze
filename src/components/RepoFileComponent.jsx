@@ -18,8 +18,10 @@ const RepoFile = ({ data }) => {
             <h4>Repository Info</h4>
             <p><a href={data.html_url}>GitHub repo page</a></p>
             <p>{data.description}</p>
-            <p>{data.created_at}</p>
-            <p>{data.updated_at}</p>
+            <p>Created at:</p>
+            <p>{data.created_at.slice(0, 10)}</p>
+            <p>Last update:</p>
+            <p>{data.updated_at.slice(0, 10)}</p>
             <p>{data.stargazers_count}</p>
             <p>{data.forks_count}</p>
             {data.license && <p>{data.license.name}</p>}
