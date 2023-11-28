@@ -48,3 +48,8 @@
   border-radius: 50%;
   height: 35px;
 }
+
+.avatar {
+  border-radius: 50%;
+  height: 100px;
+}
