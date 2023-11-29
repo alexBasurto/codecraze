@@ -44,12 +44,16 @@ const Chart1 = () => {
             y: languageCount.map(l => l.count),
             marker: {
                 color: 'rgb(255, 163, 60)'
-            }
+            },
+            hovertemplate: 'Language: %{x} <br>Number of Repositories: %{y}<extra></extra>'
         }];
         const layout = {
             title: 'Most Used Languages',
             xaxis: {
-                title: 'Language'
+                title: 'Language',
+                tickangle: -45,
+                automargin: true,
+
             },
             yaxis: {
                 title: 'Number of Repositories'
