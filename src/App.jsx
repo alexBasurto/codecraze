@@ -8,9 +8,11 @@ import About from './components/AboutComponent';
 import Footer from './components/FooterComponent';
 
 import './App.css';
+import './assets/bttn.min.css'
 
 function App() {
 const [webPosition, setWebPosition] = useState('welcome');
+const [className, setClassName] = useState('bttn-pill bttn-md bttn-primary');
 
 const handleButtonClick = (position) => {
   if (position === 'repoSearch' && webPosition === 'repoSearch') {
@@ -30,11 +32,11 @@ const handleButtonClick = (position) => {
       <h1>CODECRAZE</h1>
       <nav>
         <ul>
-          <li><button onClick={() => handleButtonClick('welcome')}>WELCOME</button></li>
-          <li><button onClick={() => handleButtonClick('repoSearch')}>REPO SEARCH ENGINE</button></li>
-          <li><button onClick={() => handleButtonClick('myFavs')}>MY FAVS</button></li>
-          <li><button onClick={() => handleButtonClick('language')}>LANGUAGES STATISTICS</button></li>
-          <li><button onClick={() => handleButtonClick('about')}>ABOUT</button></li>
+          <li><button className={className} onClick={() => handleButtonClick('welcome')}>WELCOME</button></li>
+          <li><button className={className} onClick={() => handleButtonClick('repoSearch')}>REPO SEARCH ENGINE</button></li>
+          <li><button className={className} onClick={() => handleButtonClick('myFavs')}>MY FAVS</button></li>
+          <li><button className={className} onClick={() => handleButtonClick('language')}>LANGUAGES STATISTICS</button></li>
+          <li><button className={className} onClick={() => handleButtonClick('about')}>ABOUT</button></li>
         </ul>
       </nav>
     </header>

@@ -84,7 +84,7 @@ const RepoSearch = () => {
       setLoading(false);
     });
 
-  }
+  } // pendiente refactorizar
 
   const goToPrevious = () => {
     setCurrentPage((page) => page - 1);
@@ -109,7 +109,7 @@ const RepoSearch = () => {
       setLoading(false);
     });
 
-  };
+  }; // pendiente refactorizar
 
   return (
     <>
