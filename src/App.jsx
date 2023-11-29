@@ -29,7 +29,10 @@ const handleButtonClick = (position) => {
   return (
     <>
     <header>
-      <h1>CODECRAZE</h1>
+      <div className="header-title">
+        <img src="/assets/codecrazeIcon.png" alt="Logo de CodeCraze" />
+        <h1>CodeCraze</h1>
+      </div>
       <nav>
         <ul>
           <li><button className={className} onClick={() => handleButtonClick('welcome')}>WELCOME</button></li>
