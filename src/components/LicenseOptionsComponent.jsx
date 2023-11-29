@@ -1,17 +1,21 @@
 import { useState } from "react";
 import { useEffect } from "react";
 
+import {getLicensesFromAPI} from "./utils/apiGitHub.js";
+
 const LicensesOptions = ({onLicenseChange}) => {
     const [licensesList, setLicensesList] = useState([]);
     const [selectedLicense, setSelectedLicense] = useState("all");
+    const [error, setError] = useState("");
 
     const getLicenses = async () => {
         try {
-            const data = await fetch(`https://api.github.com/licenses`);
-            const results = await data.json();
-            setLicensesList(results);
+            console.log("Getting licenses...");
+            const data = await getLicensesFromAPI();
+            setLicensesList(data);
         } catch (e) {
-            console.error(e);
+            console.log("Error getting licenses:", e.message);
+            setError(e.message);
         }
     }
 

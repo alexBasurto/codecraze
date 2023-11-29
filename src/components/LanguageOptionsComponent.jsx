@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import getLanguagesFromAPI from "./utils/apiGitHub.js";
+import {getLanguagesFromAPI} from "./utils/apiGitHub.js";
 
 const LanguageOptions = ({ onLanguageChange }) => {
   const [languageList, setLanguageList] = useState([]);
@@ -18,7 +18,8 @@ const LanguageOptions = ({ onLanguageChange }) => {
 
   useEffect(() => {
     getLanguages();
-  }, []);
+  }
+  , []);
 
   const handleLanguageChange = (e) => {
     const selectedValue = e.target.value;
