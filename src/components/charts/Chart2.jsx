@@ -57,7 +57,7 @@ const Chart2 = () => {
             text: repoData.map(r => r.language),  // Agregado para mostrar el nombre del lenguaje encima de cada barra
             name: 'Stars',
             marker: {
-                color: 'rgb(142,124,195)'
+                color: 'rgb(48, 129, 208)'
             }
         },
         {
@@ -67,7 +67,7 @@ const Chart2 = () => {
             text: repoData.map(r => r.language),  // Agregado para mostrar el nombre del lenguaje encima de cada barra
             name: 'Forks',
             marker: {
-                color: 'rgb(100,100,100)'
+                color: 'rgb(109, 185, 239)'
             }
         }];
 

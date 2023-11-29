@@ -36,12 +36,14 @@ const Chart1 = () => {
             }
         });
 
+        languageCount.sort((a, b) => b.count - a.count);
+
         const chartData = [{
             type: 'bar',
             x: languageCount.map(l => l.language),
             y: languageCount.map(l => l.count),
             marker: {
-                color: 'rgb(142,124,195)'
+                color: 'rgb(255, 163, 60)'
             }
         }];
         const layout = {
