@@ -10,11 +10,9 @@ const LicensesOptions = ({onLicenseChange}) => {
 
     const getLicenses = async () => {
         try {
-            console.log("Getting licenses...");
             const data = await getLicensesFromAPI();
             setLicensesList(data);
         } catch (e) {
-            console.log("Error getting licenses:", e.message);
             setError(e.message);
         }
     }

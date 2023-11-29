@@ -32,7 +32,6 @@ const getLicensesFromAPI = async () => {
     try {
         const response = await fetch("https://api.github.com/licenses");
         const data = await response.json();
-        console.log("Licenses: ", data);
         return data;
     } catch (error) {
         return error;
@@ -43,7 +42,6 @@ const getLanguagesFromAPI = async () => {
     try {
         const response = await fetch("https://api.github.com/languages");
         const data = await response.json();
-        console.log("Languages: ", data);
         return data;
     } catch (error) {
         return error;

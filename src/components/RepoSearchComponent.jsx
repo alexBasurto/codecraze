@@ -53,7 +53,6 @@ const RepoSearch = () => {
   };
 
   const handleOpenRepoFile = (repo) => {
-    console.log("Repo to open:", repo);
     setRepoSelected(repo);
     setSearchOrFile(false);
   }
