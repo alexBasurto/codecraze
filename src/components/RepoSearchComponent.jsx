@@ -57,26 +57,58 @@ const RepoSearch = () => {
     setSearchOrFile(false);
   }
 
-  const goToPage = (page) => {
-    setCurrentPage(page);
-  };
+  // const goToPage = (page) => {
+  //   setCurrentPage(page);
+  // };
 
   const goToNext = () => {
-    if (currentPage < totalPages) {
-      const query = buildQuery(currentSearch, currentPage + 1);
-      setCurrentPage(currentPage => currentPage + 1);
-      setRepoList([]);
-      getRepos(query);
-    }
-  };
+    setCurrentPage((page) => page + 1);
+    getReposFromAPI(currentSearch, {
+      name: currentSearch.repoName,
+      description: currentSearch.repoDesc,
+      owner: currentSearch.owner,
+      language: currentSearch.language,
+      license: currentSearch.license,
+      limit: "stars:>2000",
+      sort: sortBy,
+      order: orderBy,
+      page: currentPage + 1,
+      per_page: perPage,
+    }).then((data) => {
+      if (data.items) {
+        setRepoList(data.items);
+        setTotalPages(Math.ceil(data.total_count / perPage));
+      } else {
+        setError(data.message);
+      }
+      setLoading(false);
+    });
+
+  }
 
   const goToPrevious = () => {
-    if (currentPage > 1) {
-      const query = buildQuery(currentSearch, currentPage - 1);
-      setCurrentPage(currentPage => currentPage - 1);
-      setRepoList([]);
-      getRepos(query);
-    }
+    setCurrentPage((page) => page - 1);
+    getReposFromAPI(currentSearch, {
+      name: currentSearch.repoName,
+      description: currentSearch.repoDesc,
+      owner: currentSearch.owner,
+      language: currentSearch.language,
+      license: currentSearch.license,
+      limit: "stars:>2000",
+      sort: sortBy,
+      order: orderBy,
+      page: currentPage - 1,
+      per_page: perPage,
+    }).then((data) => {
+      if (data.items) {
+        setRepoList(data.items);
+        setTotalPages(Math.ceil(data.total_count / perPage));
+      } else {
+        setError(data.message);
+      }
+      setLoading(false);
+    });
+
   };
 
   return (
@@ -95,7 +127,7 @@ const RepoSearch = () => {
         <span>Page {currentPage} of {totalPages}</span>
         <button onClick={() => goToNext()} disabled={currentPage === totalPages}>Next</button>
       </div>
-      <table className='repos-table'>
+      <table className='repos-results'>
         <thead>
           <tr>
           <th>REPO NAME</th>
