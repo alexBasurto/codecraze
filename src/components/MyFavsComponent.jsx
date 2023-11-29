@@ -29,9 +29,9 @@ const MyFavs = () => {
 
   return (
     <>
-      <h2>My Favs</h2>
       {searchOrFile && !repoSelected &&
       <>
+      <h2>My Favs</h2>
       <table className='repos-table'>
         <thead>
           <tr>
