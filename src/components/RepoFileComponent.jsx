@@ -30,7 +30,7 @@ const RepoFile = ({ data }) => {
     return (
         <>
         <h2>Repo File</h2>
-        <article className="className">
+        <article className={className}>
             <h3>{data.name}</h3>
             <h4>Repository Info</h4>
             <p><a href={data.html_url} target="_blank">GitHub repo page</a></p>

@@ -143,6 +143,10 @@ h2 {
   margin-top: 20px;
 }
 
+.repo-results thead {
+  background: linear-gradient(90deg, #efd5ff 0%, #9da3f8 100%);
+}
+
 .repo-results th {
   font-weight: bold;
   background: rgba(255, 255, 255, 0.5);
@@ -156,11 +160,51 @@ h2 {
 
 .repo-results td {
   padding: 10px;
+  text-align: center;
 }
 
-.repo-results tr:hover {
+.repo-results tbody tr:hover {
   background: rgba(255, 255, 255, 0.5);
 }
+
+/*ficha grande repo*/
+.repo-file {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.repo-file h4 {
+  color: #333;
+}
+
+.repo-file a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.repo-file a:hover {
+  text-decoration: underline;
+}
+
+.repo-file p {
+  margin: 10px 0;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.favorite {
+  margin-left: 10px;
+}
+
 
 /*footer*/
 footer {
