@@ -1,18 +1,20 @@
 import { useState, useEffect } from "react";
 
+import getLanguagesFromAPI from "./utils/apiGitHub.js";
+
 const LanguageOptions = ({ onLanguageChange }) => {
   const [languageList, setLanguageList] = useState([]);
   const [selectedLanguage, setSelectedLanguage] = useState("all");
+  const [error, setError] = useState("");
 
   const getLanguages = async () => {
     try {
-      const data = await fetch(`https://api.github.com/languages`);
-      const results = await data.json();
-      setLanguageList(results);
+      const data = await getLanguagesFromAPI();
+      setLanguageList(data);
     } catch (e) {
-      console.error("Algo salió mal...", e);
+      setError(e.message);
     }
-  };
+  }
 
   useEffect(() => {
     getLanguages();

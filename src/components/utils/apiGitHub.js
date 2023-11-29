@@ -28,5 +28,25 @@ const getReposFromAPI = async (formData, queryParams) => {
     }
 };
 
+const getLicensesFromAPI = async () => {
+    try {
+        const response = await fetch("https://api.github.com/licenses");
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        return error;
+    }
+};
 
-export default getReposFromAPI;
+const getLanguagesFromAPI = async () => {
+    try {
+        const response = await fetch("https://api.github.com/languages");
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        return error;
+    }
+}
+
+
+export default {getReposFromAPI, getLicensesFromAPI, getLanguagesFromAPI};
