@@ -20,6 +20,9 @@ const RepoSearch = () => {
   const [currentSearch, setCurrentSearch] = useState([]);
   const [searchOrFile, setSearchOrFile] = useState(true); // true = search, false = file
 
+  const [classDisabled, setClassDisabled] = useState("bttn-slant bttn-sm bttn-default");
+  const [classEnabled, setClassEnabled] = useState("bttn-slant bttn-sm bttn-primary");
+
   let clName = "repo-results";
   
   useEffect(() => {
@@ -123,9 +126,9 @@ const RepoSearch = () => {
       {repoList.length != 0 &&
       <>
       <div className="pagination">
-        <button className={currentPage === 1 ? "bttn-slant bttn-sm bttn-danger" : "bttn-slant bttn-sm bttn-primary"}  onClick={() => goToPrevious()} disabled={currentPage === 1}>Previous</button>
+        <button className={currentPage === 1 ? classDisabled : classEnabled}  onClick={() => goToPrevious()} disabled={currentPage === 1}>Previous</button>
         <span>Page {currentPage} of {totalPages}</span>
-        <button className={currentPage === totalPages ? "bttn-slant bttn-sm bttn-danger" : "bttn-slant bttn-sm bttn-primary"} onClick={() => goToNext()} disabled={currentPage === totalPages}>Next</button>
+        <button className={currentPage === totalPages ? classDisabled : classEnabled} onClick={() => goToNext()} disabled={currentPage === totalPages}>Next</button>
       </div>
       <table className={clName}>
         <thead>

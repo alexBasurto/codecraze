@@ -12,7 +12,7 @@ import './assets/bttn.min.css'
 
 function App() {
 const [webPosition, setWebPosition] = useState('welcome');
-const [className, setClassName] = useState('bttn-pill bttn-md bttn-primary');
+const [className, setClassName] = useState('bttn-unite bttn-md bttn-primary');
 
 const handleButtonClick = (position) => {
   if (position === 'repoSearch' && webPosition === 'repoSearch') {
