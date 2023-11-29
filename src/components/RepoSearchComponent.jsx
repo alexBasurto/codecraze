@@ -5,7 +5,7 @@ import RepoForm from "./RepoFormComponent";
 import RepoRow from "./RepoRowComponent";
 import RepoFile from "./RepoFileComponent";
 
-import getReposFromAPI from "./utils/apiGitHub.js";
+import {getReposFromAPI} from "./utils/apiGitHub.js";
 
 const RepoSearch = () => {
   const [loaded, setLoaded] = useState(false);
