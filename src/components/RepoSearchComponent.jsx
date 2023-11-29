@@ -20,7 +20,7 @@ const RepoSearch = () => {
   const [currentSearch, setCurrentSearch] = useState([]);
   const [searchOrFile, setSearchOrFile] = useState(true); // true = search, false = file
 
-  let className = "repo-results";
+  let clName = "repo-results";
   
   useEffect(() => {
   }, [currentPage]);
@@ -123,11 +123,11 @@ const RepoSearch = () => {
       {repoList.length != 0 &&
       <>
       <div className="pagination">
-        <button onClick={() => goToPrevious()} disabled={currentPage === 1}>Previous</button>
+        <button className={currentPage === 1 ? "bttn-slant bttn-sm bttn-danger" : "bttn-slant bttn-sm bttn-primary"}  onClick={() => goToPrevious()} disabled={currentPage === 1}>Previous</button>
         <span>Page {currentPage} of {totalPages}</span>
-        <button onClick={() => goToNext()} disabled={currentPage === totalPages}>Next</button>
+        <button className={currentPage === totalPages ? "bttn-slant bttn-sm bttn-danger" : "bttn-slant bttn-sm bttn-primary"} onClick={() => goToNext()} disabled={currentPage === totalPages}>Next</button>
       </div>
-      <table className='repos-results'>
+      <table className={clName}>
         <thead>
           <tr>
           <th>REPO NAME</th>

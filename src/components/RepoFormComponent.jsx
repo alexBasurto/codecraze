@@ -9,8 +9,9 @@ const RepoForm = ({ onFormSubmit }) => {
     const [owner, setOwner] = useState("");
     const [language, setLanguage] = useState("");
     const [license, setLicense] = useState("");
+    const [className, setClassName] = useState('bttn-jelly bttn-md bttn-primary');
 
-    let className = "repo-form";
+    let clName = "repo-form";
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -26,7 +27,7 @@ const RepoForm = ({ onFormSubmit }) => {
     return (
         <>
         <h2>Repo Search Engine</h2>
-            <form onSubmit={handleSubmit}>
+            <form className={clName} onSubmit={handleSubmit}>
                 <label htmlFor="repoName">Repo Name</label>
                 <input type="text" id="repoName" placeholder="Repo name..." value={repoName} onChange={(e) => setRepoName(e.target.value)}/>
 
@@ -38,7 +39,7 @@ const RepoForm = ({ onFormSubmit }) => {
                 <LanguageOptions onLanguageChange={(language) => setLanguage(language)}/>
                 <LicensesOptions onLicenseChange={(license) => setLicense(license)}/>
 
-                <button type="submit">Search</button>
+                <button className={className}  type="submit">Search</button>
             </form>
             </>
     );
