@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import React from "react";
 import Plot from "react-plotly.js";
 
+import { getReposFromAPI } from "../utils/apiGitHub.js";
+
 const Chart2 = () => {
     const [repoList, setRepoList] = useState([]);
     const [loaded, setLoaded] = useState(false);
@@ -15,12 +17,8 @@ const Chart2 = () => {
 
     const getRepos = async () => {
         try {
-            const data = await fetch(
-                "https://api.github.com/search/repositories?q=stars:%3E2000&sort=stars&order=desc&page=1&per_page=100"
-            );
-            const results = await data.json();
-
-            setRepoList(results.items);
+            const data = await getReposFromAPI();
+            setRepoList(data.items);
             setLoaded(true);
         } catch (e) {
             setError("Algo salió mal...");
