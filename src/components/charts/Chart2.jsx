@@ -68,7 +68,8 @@ const Chart2 = () => {
         }];
 
         const layout = {
-            title: 'Stars and Forks',
+            barmode: 'stack', // Configurar el modo de apilamiento
+            title: 'Stacked Bar Chart | Stars & Forks',
             xaxis: {
                 title: 'Repsitories'
             },
