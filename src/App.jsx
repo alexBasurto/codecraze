@@ -15,6 +15,9 @@ const handleButtonClick = (position) => {
   if (position === 'repoSearch' && webPosition === 'repoSearch') {
     setWebPosition(null);
     setTimeout(() => setWebPosition(position), 0);
+  } else if (position === 'myFavs' && webPosition === 'myFavs') {
+    setWebPosition(null);
+    setTimeout(() => setWebPosition(position), 0);
   } else {
     setWebPosition(position);
   }
