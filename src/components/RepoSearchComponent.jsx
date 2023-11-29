@@ -8,7 +8,7 @@ import RepoFile from "./RepoFileComponent";
 import {getReposFromAPI} from "./utils/apiGitHub.js";
 
 const RepoSearch = () => {
-  const [loaded, setLoaded] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [repoList, setRepoList] = useState([]);
   const [repoSelected, setRepoSelected] = useState(null);
   const [error, setError] = useState("");
@@ -26,6 +26,7 @@ const RepoSearch = () => {
   }, [currentPage]);
 
   const handleFormSubmit = (formData) => {
+    setLoading(true);
     setCurrentSearch(formData);
     const queryParams = {
       name: formData.repoName,
@@ -47,6 +48,7 @@ const RepoSearch = () => {
       } else {
         setError(data.message);
       }
+      setLoading(false);
     });
   };
 
@@ -86,6 +88,7 @@ const RepoSearch = () => {
       {searchOrFile && !repoSelected &&
       <>
       <RepoForm onFormSubmit={handleFormSubmit}/>
+      {loading && <p>Loading...</p>}
       {repoList.length != 0 &&
       <>
       <div className="pagination">

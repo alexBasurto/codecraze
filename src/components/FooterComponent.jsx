@@ -5,7 +5,7 @@ const Footer = () => {
     <footer>
       <div className="footer-content">
         <p>&copy; 2023 CODECRAZE. Todos los derechos reservados.</p>
-        <p>Desarrollado por tu_nombre</p>
+        <p>Desarrollado por Alex Basurto</p>
       </div>
     </footer>
   );
