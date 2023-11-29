@@ -5,6 +5,7 @@ import RepoSearch from './components/RepoSearchComponent';
 import MyFavs from './components/MyFavsComponent';
 import LanguageStats from './components/LanguageStatsComponent';
 import About from './components/AboutComponent';
+import Footer from './components/FooterComponent';
 
 import './App.css';
 
@@ -44,6 +45,7 @@ const handleButtonClick = (position) => {
       {webPosition === 'language' && <LanguageStats />}
       {webPosition === 'about' && <About />}
     </main>
+    <Footer />
     </>
   );
 }
