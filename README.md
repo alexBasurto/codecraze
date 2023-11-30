@@ -40,4 +40,4 @@ Run ```npm run dev``` to run the app in development mode.
 - New charts: trends, top entries in the last month, etc.
 - Advanced search features
 - Advanced user search
-
+- Improve error handling
