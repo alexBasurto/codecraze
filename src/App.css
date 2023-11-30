@@ -91,15 +91,18 @@ main {
 label {
   display: block;
   margin: 10px 0;
-  width: 50%;
+  width: 25%;
+  padding: 10px;
+  text-align: center;
 }
 
 input,
 select {
-  width: 50%;
+  width: 25%;
   padding: 10px;
   margin: 5px 0 15px;
   box-sizing: border-box;
+  text-align: center;
 }
 
 h2 {
