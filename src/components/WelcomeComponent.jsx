@@ -7,6 +7,7 @@ const Welcome = () => {
     return (
         <>
         <h2>Welcome</h2>
+        <img id='octocat' src="/assets/homeGithub.png" alt="Octocat" />
         <p>Search for repositories on GitHub</p>
         <p>Filter by language and license</p>
         <p>See the most used languages in the repos you have searched</p>

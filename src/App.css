@@ -28,7 +28,7 @@ h2, h3, h4 {
 }
 
 main>h3 {
-  margin-left: 5%;
+  text-align: center;
 }
 
 .ownerMiniature {
@@ -86,14 +86,22 @@ li {
 
 /*main*/
 main {
+  display: flex;
+  flex-direction: column;
   padding: 10px; /* Espaciado interno */
   background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
   padding: 20px;
   min-height: calc(100vh - 190px);
 }
 
-main p {
-  margin-left: 5%;
+img#octocat {
+  width: 15%;
+  margin: 0 auto;
+}
+
+main>p {
+  text-align: center;
+  margin: 10px auto;
 }
 
 main h2 {
@@ -230,13 +238,12 @@ td.owner p {
   font-size: 18px;
   text-align: center;
 }
-
-.repo-file a {
+a {
   color: #3498db;
   text-decoration: none;
 }
 
-.repo-file a:hover {
+a:hover {
   text-decoration: underline;
 }
 
