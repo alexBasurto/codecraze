@@ -80,7 +80,7 @@ const Chart1 = () => {
 
     return (
         <>
-        <h3>Chart 1</h3>
+        <h3>Chart Languages</h3>
         <p>Here you can see the most used languages in the repos you have searched</p>
         {!loaded && <p>Loading...</p>}
         {loaded && <MostUsedLang/>}

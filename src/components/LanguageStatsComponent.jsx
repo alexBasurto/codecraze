@@ -20,8 +20,8 @@ const LanguageStats = () => {
         <h2>Language Statistics</h2>
         <p>Here you can see the most used languages in the repos you have searched</p>
         <ul>
-            <li><button className={className} onClick={() => handleButtonClick('chart1')}>CHART 1</button></li>
-            <li><button className={className} onClick={() => handleButtonClick('chart2')}>CHART 2</button></li> 
+            <li><button className={className} onClick={() => handleButtonClick('chart1')}>CHART LANGUAGES</button></li>
+            <li><button className={className} onClick={() => handleButtonClick('chart2')}>CHART REPOSITORIES</button></li> 
         </ul>
         {webPosition === 'chart1' && <Chart1/>}
         {webPosition === 'chart2' && <Chart2/>}

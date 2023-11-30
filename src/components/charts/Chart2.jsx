@@ -108,7 +108,7 @@ const Chart2 = () => {
 
     return (
         <>
-            <h3>Chart 2</h3>
+            <h3>Chart Repositories</h3>
             <p>
                 Here you can see the top100 repositories from GitHub, ordered
             </p>
