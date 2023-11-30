@@ -35,16 +35,6 @@ const Chart2 = () => {
         };
     });
 
-    const languages = repoList.map((repo) => repo.language);
-    const uniqueLanguages = Array.from(new Set(languages));
-
-    const languageCount = uniqueLanguages.map((language) => {
-        return {
-            language: language,
-            count: languages.filter((l) => l === language).length,
-        };
-    });
-
     const stargazers_count = repoList.map((repo) => repo.stargazers_count);
     const forks_count = repoList.map((repo) => repo.forks_count);
 

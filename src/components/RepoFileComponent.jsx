@@ -50,8 +50,8 @@ const RepoFile = ({ data }) => {
             <div className="repo-file-owner">
               <h4>Owner Info</h4>
               <img src={data.owner.avatar_url} alt="Imagen de perfil" className="avatar"/>
-              <p>{data.owner.login}</p>
-              <p>User or Organization:</p>
+              <h4>{data.owner.login}</h4>
+              <p className="bold">User or Organization:</p>
               <p>{data.owner.type}</p>
               <p><a href={data.owner.html_url} target="_blank">GitHub owner's page</a></p>
             </div>
