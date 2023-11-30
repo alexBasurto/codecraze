@@ -54,11 +54,13 @@ const RepoFile = ({ data }) => {
               <p className="bold">User or Organization:</p>
               <p>{data.owner.type}</p>
               <p><a href={data.owner.html_url} target="_blank">GitHub owner's page</a></p>
-              <h4>Contributions</h4>
-              <img src={`https://ghchart.rshah.org/${data.owner.login}`} alt="GitHub chart" className="chart"/>
-              <h4>Languages pie chart</h4>
-              <img src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${data.owner.login}&layout=compact&langs_count=10&hide_border=true&hide_title=true&hide=html,css`} alt="GitHub chart" className="chart"/>
-
+              {data.owner.type === "User" && <>
+                <h4>Contributions</h4>
+                <img src={`https://ghchart.rshah.org/${data.owner.login}`} alt="GitHub chart" className="chart"/>
+                <h4>Most used langauges</h4>
+                <img src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${data.owner.login}&layout=compact&langs_count=10&hide_border=true&hide_title=true&hide=html,css`} alt="GitHub chart" className="chart"/>
+              </>}
+              
             </div>
             <div className="repo-file-chart">
               
