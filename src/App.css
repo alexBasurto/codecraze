@@ -88,7 +88,7 @@ main {
   min-height: calc(100vh - 190px);
 }
 
-main h2, main h3, main p {
+main p {
   margin-left: 5%;
 }
 
@@ -202,12 +202,23 @@ td.owner p {
 
 /*ficha grande repo*/
 .repo-file {
-  max-width: 600px;
+  width: 90%;
   margin: 20px auto;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.repo-file h3 {
+  margin: 10px 0;
+  color: #333;
+  display: block;
+  width: 100%;
+  text-align: center;
 }
 
 .repo-file h4 {
@@ -227,9 +238,22 @@ td.owner p {
   margin: 10px 0;
 }
 
+.repo-file-info {
+  width: 50%;
+}
+
+.repo-file-owner {
+  width: 50%;
+
+}
+
+.repo-file-favs {
+  width: 50%;
+}
+
 .avatar {
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   margin-right: 10px;
 }

@@ -31,27 +31,31 @@ const RepoFile = ({ data }) => {
         <>
         <h2>Repo File</h2>
         <article className={className}>
-            <h3>{data.name}</h3>
-            <h4>Repository Info</h4>
-            <p><a href={data.html_url} target="_blank">GitHub repo page</a></p>
-            <p>{data.description}</p>
-            <p>Created at:</p>
-            <p>{data.created_at.slice(0, 10)}</p>
-            <p>Last update:</p>
-            <p>{data.updated_at.slice(0, 10)}</p>
-            <p>{data.stargazers_count}</p>
-            <p>{data.forks_count}</p>
-            {data.license && <p>{data.license.name}</p>}
-            <p>{data.language}</p>
-
-            <h4>Owner Info</h4>
-            <img src={data.owner.avatar_url} alt="Imagen de perfil" className="avatar"/>
-            <p>{data.owner.login}</p>
-            <p>{data.owner.type}</p>
-            <p><a href={data.owner.html_url} target="_blank">GitHub owner's page</a></p>
-
-            {favorite && <img src="/assets/fav.png" alt="Remove favorite" className="favorite" onClick={handleToggleFavorite}/>}
-            {!favorite &&  <img src="/assets/nofav.png" alt="Add to favorites" className="favorite" onClick={handleToggleFavorite}/>}
+            <h3>{data.name.toUpperCase()}</h3>
+            <div className="repo-file-info">
+              <h4>Repository Info</h4>
+              <p><a href={data.html_url} target="_blank">GitHub repo page</a></p>
+              <p>{data.description}</p>
+              <p>Created at:</p>
+              <p>{data.created_at.slice(0, 10)}</p>
+              <p>Last update:</p>
+              <p>{data.updated_at.slice(0, 10)}</p>
+              <p>{data.stargazers_count}</p>
+              <p>{data.forks_count}</p>
+              {data.license && <p>{data.license.name}</p>}
+              <p>{data.language}</p>
+            </div>
+            <div className="repo-file-owner">
+              <h4>Owner Info</h4>
+              <img src={data.owner.avatar_url} alt="Imagen de perfil" className="avatar"/>
+              <p>{data.owner.login}</p>
+              <p>{data.owner.type}</p>
+              <p><a href={data.owner.html_url} target="_blank">GitHub owner's page</a></p>
+            </div>
+            <div className="repo-file-favs">
+              {favorite && <img src="/assets/fav.png" alt="Remove favorite" className="favorite" onClick={handleToggleFavorite}/>}
+              {!favorite &&  <img src="/assets/nofav.png" alt="Add to favorites" className="favorite" onClick={handleToggleFavorite}/>}
+            </div>
         </article>
         </>
     );
