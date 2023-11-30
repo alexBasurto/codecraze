@@ -35,16 +35,17 @@ const RepoFile = ({ data }) => {
             <div className="repo-file-info">
               <h4>Repository Info</h4>
               <p><a href={data.html_url} target="_blank">GitHub repo page</a></p>
-              <p>Description:</p>
+              {data.homepage && <p><a href={data.homepage}>Homepage</a></p>}
+              <p className="indent">Description:</p>
               <p>{data.description}</p>
-              <p>Created at:</p>
+              <p className="indent">Created at:</p>
               <p>{data.created_at.slice(0, 10)}</p>
-              <p>Last update:</p>
+              <p className="indent">Last update:</p>
               <p>{data.updated_at.slice(0, 10)}</p>
               <p>{data.stargazers_count.toLocaleString('es-ES')} stars</p>
               <p>{data.forks_count.toLocaleString('es-ES')} forks</p>
-              {data.license && <><p>License:</p><p>{data.license.name}</p></>}
-              {data.language && <><p>Language:</p><p>{data.language}</p></>}
+              {data.license && <><p className="indent">License:</p><p>{data.license.name}</p></>}
+              {data.language && <><p className="indent">Language:</p><p>{data.language}</p></>}
             </div>
             <div className="repo-file-owner">
               <h4>Owner Info</h4>

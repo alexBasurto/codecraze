@@ -244,6 +244,10 @@ td.owner p {
   margin: 10px 0;
 }
 
+.repo-file p.indent {
+  text-indent: 20px;
+}
+
 .repo-file-info {
   width: 50%;
 }

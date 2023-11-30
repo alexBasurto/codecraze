@@ -110,8 +110,7 @@ const Chart2 = () => {
         <>
             <h3>Chart 2</h3>
             <p>
-                Here you can see the most used languages in the repos you have
-                searched
+                Here you can see the top100 repositories from GitHub, ordered
             </p>
             {!loaded && <p>Loading...</p>}
             {loaded && <MostUsedLang />}
