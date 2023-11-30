@@ -185,6 +185,21 @@ h2 {
   background: rgba(255, 255, 255, 0.5);
 }
 
+td.description {
+  width: 40%;
+}
+
+td.owner {
+  display: flex;
+  flex-direction: row;
+}
+
+td.owner p {
+  margin: auto;
+  padding: 0 10px;
+
+}
+
 /*ficha grande repo*/
 .repo-file {
   max-width: 600px;
