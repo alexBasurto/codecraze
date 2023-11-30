@@ -8,6 +8,8 @@ const MyFavs = () => {
   const [repoSelected, setRepoSelected] = useState(null);
   const [searchOrFile, setSearchOrFile] = useState(true); // true = search, false = file
 
+  let clName = "repo-results";
+
   useEffect(() => {
     getMyFavs();
   }
@@ -31,7 +33,7 @@ const MyFavs = () => {
       {searchOrFile && !repoSelected &&
       <>
       <h2>My Favs</h2>
-      <table className='repos-table'>
+      <table className={clName}>
         <thead>
           <tr>
           <th>REPO NAME</th>
