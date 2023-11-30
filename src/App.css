@@ -27,6 +27,10 @@ h2, h3, h4 {
   font-weight: 700;
 }
 
+main>h3 {
+  margin-left: 5%;
+}
+
 .ownerMiniature {
   border-radius: 50%;
   height: 35px;
