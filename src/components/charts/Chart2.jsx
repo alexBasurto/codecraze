@@ -75,6 +75,8 @@ const Chart2 = () => {
     const layout = {
         barmode: "stack",
         title: "Stacked Bar Chart | Stars & Forks",
+        paper_bgcolor:'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)',
         xaxis: {
             title: "Repsitories",
             showgrid: true,

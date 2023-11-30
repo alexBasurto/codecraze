@@ -51,6 +51,8 @@ const Chart1 = () => {
         }];
         const layout = {
             title: 'Most Used Languages',
+            paper_bgcolor:'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)',
             xaxis: {
                 title: 'Language',
                 tickangle: -45,
