@@ -223,6 +223,8 @@ td.owner p {
 
 .repo-file h4 {
   color: #333;
+  font-size: 18px;
+  text-align: center;
 }
 
 .repo-file a {
@@ -244,11 +246,12 @@ td.owner p {
 
 .repo-file-owner {
   width: 50%;
-
+  text-align: center;
 }
 
 .repo-file-favs {
-  width: 50%;
+  width: 100%;
+  text-align: center;
 }
 
 .avatar {

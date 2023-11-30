@@ -14,7 +14,7 @@ const RepoRow = ({ data , openRepoFile}) => {
         <td>{data.name.toUpperCase()}</td>
         <td className="description">{(data.description.length > 60) ? (data.description.substr(0, 60) + "...") : data.description}</td>
         <td>{data.language}</td>
-        <td>{data.stargazers_count}</td>
+        <td>{data.stargazers_count.toLocaleString('es-ES')}</td>
         <td className="owner">
         <img src={data.owner.avatar_url} alt="Owner profile" className="ownerMiniature" /><p>{data.owner.login}</p>
         </td>

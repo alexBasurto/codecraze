@@ -35,20 +35,22 @@ const RepoFile = ({ data }) => {
             <div className="repo-file-info">
               <h4>Repository Info</h4>
               <p><a href={data.html_url} target="_blank">GitHub repo page</a></p>
+              <p>Description:</p>
               <p>{data.description}</p>
               <p>Created at:</p>
               <p>{data.created_at.slice(0, 10)}</p>
               <p>Last update:</p>
               <p>{data.updated_at.slice(0, 10)}</p>
-              <p>{data.stargazers_count}</p>
-              <p>{data.forks_count}</p>
-              {data.license && <p>{data.license.name}</p>}
-              <p>{data.language}</p>
+              <p>{data.stargazers_count.toLocaleString('es-ES')} stars</p>
+              <p>{data.forks_count.toLocaleString('es-ES')} forks</p>
+              {data.license && <><p>License:</p><p>{data.license.name}</p></>}
+              {data.language && <><p>Language:</p><p>{data.language}</p></>}
             </div>
             <div className="repo-file-owner">
               <h4>Owner Info</h4>
               <img src={data.owner.avatar_url} alt="Imagen de perfil" className="avatar"/>
               <p>{data.owner.login}</p>
+              <p>User or Organization:</p>
               <p>{data.owner.type}</p>
               <p><a href={data.owner.html_url} target="_blank">GitHub owner's page</a></p>
             </div>
