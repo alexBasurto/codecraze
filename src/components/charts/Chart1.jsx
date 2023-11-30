@@ -8,8 +8,7 @@ const Chart1 = () => {
     const [repoList, setRepoList] = useState([]);
     const [loaded, setLoaded] = useState(false);
     const [error, setError] = useState("");
-
-    let className = "chart1";
+    const [className, setClassName] = useState("plotlyContainer");
 
     useEffect(() => {
         getRepos();
@@ -53,6 +52,8 @@ const Chart1 = () => {
             title: 'Most Used Languages',
             paper_bgcolor:'rgba(0,0,0,0)',
             plot_bgcolor: 'rgba(0,0,0,0)',
+            width: 1300,
+            height: 500,
             xaxis: {
                 title: 'Language',
                 tickangle: -45,
@@ -69,7 +70,7 @@ const Chart1 = () => {
 
         render() {
           return (
-            <div>
+            <div className={className} >
       {error && <p>{error}</p>}
       <Plot data={chartData} layout={layout} />
     </div>

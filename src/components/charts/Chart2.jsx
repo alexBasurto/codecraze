@@ -8,8 +8,7 @@ const Chart2 = () => {
     const [repoList, setRepoList] = useState([]);
     const [loaded, setLoaded] = useState(false);
     const [error, setError] = useState("");
-
-    let className = "chart2";
+    const [className, setClassName] = useState("plotlyContainer");
 
     useEffect(() => {
         getRepos();
@@ -77,6 +76,8 @@ const Chart2 = () => {
         title: "Stacked Bar Chart | Stars & Forks",
         paper_bgcolor:'rgba(0,0,0,0)',
         plot_bgcolor: 'rgba(0,0,0,0)',
+        width: 1300,
+        height: 500,
         xaxis: {
             title: "Repsitories",
             showgrid: true,
@@ -97,7 +98,7 @@ const Chart2 = () => {
     class MostUsedLang extends React.Component {
         render() {
             return (
-                <div>
+                <div className={className} >
                     {error && <p>{error}</p>}
                     <Plot data={chartData} layout={layout} />
                 </div>

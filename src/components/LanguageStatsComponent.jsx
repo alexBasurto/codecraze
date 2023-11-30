@@ -5,7 +5,7 @@ import Chart2 from './charts/Chart2';
 const LanguageStats = () => {
     const [loaded, setLoaded] = useState(true);
     const [webPosition, setWebPosition] = useState(null);
-    const [className, setClassName] = useState('bttn-float bttn-sm bttn-success');
+    const [className, setClassName] = useState('bttn-material-flat bttn-sm bttn-primary');
 
     let clName = "language-stats";
 

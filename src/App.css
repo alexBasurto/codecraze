@@ -210,6 +210,12 @@ h2 {
   margin-left: 10px;
 }
 
+/*plotlyContainer*/
+.plotlyContainer {
+  width: 90%;
+  margin: 0 auto;
+}
+
 /*footer*/
 footer {
   background: linear-gradient(90deg, #efd5ff 0%, #9da3f8 100%);
