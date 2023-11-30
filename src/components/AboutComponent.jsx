@@ -11,6 +11,17 @@ const About = () => {
         <p>It also shows you the most used languages in the repos you have searched.</p>
         <p>It is built with React and uses the GitHub API.</p>
 
+        <h3>React</h3>
+        <p>This app was built with <a href="https://reactjs.org/">React</a>.</p>
+        <p>React is a JavaScript library for building user interfaces. It is free and open-source software subject to the terms of the MIT license.</p>
+        <p>Find out more about <a href="https://reactjs.org/">React</a>.</p>
+        
+        <h3>GitHub API</h3>
+        <p>This app uses the <a href="https://docs.github.com/en/rest">GitHub REST API</a>.</p>
+        <p>The GitHub REST API allows you to retrieve the data you need to create your own GitHub apps and services, or to build integrations between GitHub and the tools you use to develop and deploy your code.</p>
+        <p>It is free and open-source software subject to the terms of the MIT license.</p>
+        <p>Find out more about the <a href="https://docs.github.com/en/rest">GitHub REST API</a>.</p>
+
         <h3>Libraries</h3>
         <p>This app uses <a href="https://plotly.com/javascript/react/">Plotly </a> to display the language and repositories statistics.</p>
         <p>Plotly is an open-source graphing library for JavaScript. It is free and open-source software subject to the terms of the MIT license.</p>
