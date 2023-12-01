@@ -54,12 +54,7 @@ const RepoFile = ({ data }) => {
               <p className="bold">User or Organization:</p>
               <p>{data.owner.type}</p>
               <p><a href={data.owner.html_url} target="_blank">GitHub owner's page</a></p>
-              {data.owner.type === "User" && <>
-                <h4>Contributions</h4>
-                <img src={`https://ghchart.rshah.org/${data.owner.login}`} alt="GitHub chart" className="chart"/>
-                <h4>Most used langauges</h4>
-                <img src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${data.owner.login}&layout=compact&langs_count=10&hide_border=true&hide_title=true&hide=html,css`} alt="GitHub chart" className="chart"/>
-              </>}
+              
               
             </div>
             <div className="repo-file-chart">
@@ -68,6 +63,12 @@ const RepoFile = ({ data }) => {
             <div className="repo-file-favs">
               {favorite && <img src="/assets/fav.png" alt="Remove favorite" className="favorite" onClick={handleToggleFavorite}/>}
               {!favorite &&  <img src="/assets/nofav.png" alt="Add to favorites" className="favorite" onClick={handleToggleFavorite}/>}
+              {data.owner.type === "User" && <>
+                <h4>Contributions</h4>
+                <img src={`https://ghchart.rshah.org/${data.owner.login}`} alt="GitHub chart" className="contributions-chart"/>
+                <h4>Most used langauges</h4>
+                <img src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${data.owner.login}&layout=compact&langs_count=10&hide_border=true&hide_title=true&hide=html,css`} alt="GitHub chart" className="used-languages-chart"/>
+              </>}
             </div>
         </article>
         </>
