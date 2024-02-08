@@ -1,5 +1,5 @@
 # CODECRAZE ☄️
-
+Deployment on VPS: [codecraze.basurto.dev](https://codecraze.basurto.dev/)
 This is a simple app that allows you to search for repositories on GitHub. You can filter by language and license.
 It also shows you the most used languages in the repos you have searched.
 It is built with React and uses the GitHub API.
